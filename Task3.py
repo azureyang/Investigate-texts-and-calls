@@ -86,7 +86,7 @@ def percent_final():
             callers += 1
         if c[0][:5] == '(080)' and c[1][:5] == '(080)':
             receivers += 1
-    percent = round(receivers/callers, 2) #round down to 2 decimal digits
+    percent = round((receivers/callers*100), 2) #round down to 2 decimal digits
     return str(percent)
 
 print(percent_final() + " percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.")
