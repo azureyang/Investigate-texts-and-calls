@@ -53,7 +53,7 @@ to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
 
-# Part A 
+# Part A
 called_by_bangalore = []
 codes_prefixes = []
 
@@ -79,11 +79,14 @@ print("The numbers called by people in Bangalore have codes: \n" + codes_prefixe
 
 # Part B
 def percent_final():
+    callers = 0
     receivers = 0
-    for b in called_by_bangalore:
-        if b[:5] == '(080)':
-            receivers += 1 #get the total number of receivers in bangalore
-        percent = receivers / len(called_by_bangalore) #calculate percentage
-    return str(percent)[:4] #turn float to string, slice for 2 decimal digits
+    for c in calls:
+        if c[0][:5] == '(080)':
+            callers += 1
+        if c[0][:5] == '(080)' and c[1][:5] == '(080)':
+            receivers += 1
+    percent = round(receivers/callers, 2) #round down to 2 decimal digits
+    return str(percent)
 
 print(percent_final() + " percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.")
